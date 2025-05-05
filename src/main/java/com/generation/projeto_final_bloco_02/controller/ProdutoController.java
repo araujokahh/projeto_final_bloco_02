@@ -58,6 +58,22 @@ public class ProdutoController {
 
 		throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Categoria não existe!", null);
 	}
+	
+	
+	/* Método extra: Permitre cadastrar vários produtos de uma vez. */
+	@PostMapping("/lote")
+	public ResponseEntity<List<Produto>> postLote(@Valid @RequestBody List<Produto> produtos) {
+	    
+	    for (Produto produto : produtos) {
+	        if (!categoriaRepository.existsById(produto.getCategoria().getId())) {
+	            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Categoria não existe!", null);
+	        }
+	    }
+
+	    List<Produto> produtosSalvos = produtoRepository.saveAll(produtos);
+	    return ResponseEntity.status(HttpStatus.CREATED).body(produtosSalvos);
+	}
+
 
 	@PutMapping
 	public ResponseEntity<Produto> put(@Valid @RequestBody Produto produto) {

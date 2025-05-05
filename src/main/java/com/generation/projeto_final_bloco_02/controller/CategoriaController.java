@@ -52,6 +52,13 @@ public class CategoriaController {
 		return ResponseEntity.status(HttpStatus.CREATED).body(categoriaRepository.save(categoria));
 	}
 
+	/* Método extra: Permite cadastrar várias categorias de uma vez. */
+	@PostMapping("/lote")
+	public ResponseEntity<List<Categoria>> postLote(@Valid @RequestBody List<Categoria> categorias) {
+		List<Categoria> categoriasSalvas = categoriaRepository.saveAll(categorias);
+		return ResponseEntity.status(HttpStatus.CREATED).body(categoriasSalvas);
+	}
+
 	@PutMapping
 	public ResponseEntity<Categoria> put(@Valid @RequestBody Categoria categoria) {
 		return categoriaRepository.findById(categoria.getId())
