@@ -23,15 +23,14 @@ import com.generation.projeto_final_bloco_02.repository.CategoriaRepository;
 
 import jakarta.validation.Valid;
 
-
 @RestController
 @RequestMapping("/categoria")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class CategoriaController {
-	
+
 	@Autowired
 	private CategoriaRepository categoriaRepository;
-	
+
 	@GetMapping
 	public ResponseEntity<List<Categoria>> getAll() {
 		return ResponseEntity.ok(categoriaRepository.findAll());
@@ -59,17 +58,16 @@ public class CategoriaController {
 				.map(resposta -> ResponseEntity.status(HttpStatus.OK).body(categoriaRepository.save(categoria)))
 				.orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
 	}
-	
+
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable Long id) {
 		Optional<Categoria> categoria = categoriaRepository.findById(id);
-		
-		if(categoria.isEmpty())
+
+		if (categoria.isEmpty())
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-		
+
 		categoriaRepository.deleteById(id);
 	}
-
 
 }
