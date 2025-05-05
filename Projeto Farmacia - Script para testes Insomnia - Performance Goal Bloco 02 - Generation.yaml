@@ -1,0 +1,419 @@
+type: collection.insomnia.rest/5.0
+name: Farmácia - Projeto Final 02
+meta:
+  id: wrk_e1d24c3b7e724ccfb98a9854d2f2ee93
+  created: 1746451162861
+  modified: 1746451162861
+collection:
+  - name: Produto
+    meta:
+      id: fld_c1b8bc132ab647eb9b9f738c3c05a35c
+      created: 1746451162869
+      modified: 1746451162869
+      sortKey: -1745350830692
+    children:
+      - url: localhost:8080/produtos
+        name: Get All
+        meta:
+          id: req_3020cd734caf4a36be3bdc53247d30f4
+          created: 1746451162872
+          modified: 1746451162872
+          isPrivate: false
+          sortKey: -1745350833932
+        method: GET
+        body:
+          mimeType: application/json
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/produtos/produtos/sabonete
+        name: Get By Nome
+        meta:
+          id: req_7beb43d5bee24773a6cb154cfd8afcd3
+          created: 1746451162875
+          modified: 1746457351873
+          isPrivate: false
+          sortKey: -1745354639436.5
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/produtos
+        name: Cadastrar
+        meta:
+          id: req_1b2e1fbc92c84d0e840be045919c1120
+          created: 1746451162878
+          modified: 1746456821755
+          isPrivate: false
+          sortKey: -1745358444991
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            
+            	{
+            	"nome": "Sabonete Dove",
+            	"quantidade": 3,
+            	"preco": 4.99,
+            	"categoria": {"id": 1}
+            	}
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/produtos
+        name: Atualizar
+        meta:
+          id: req_4853845f2f3a4c57a00b6241fda74a0c
+          created: 1746451162880
+          modified: 1746457035759
+          isPrivate: false
+          sortKey: -1745359695982.5
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id": 1,
+            	"nome": "Sabonete Dove - Atualizado",
+            	"quantidade": 2,
+            	"preco": 5.00,
+            	"categoria": {"id": 1}
+            	
+            	}
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/produtos/1
+        name: "Deletar "
+        meta:
+          id: req_80c4469480bf4f4994552b906d6fa8c4
+          created: 1746451162883
+          modified: 1746456655894
+          isPrivate: false
+          sortKey: -1745360487704.25
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/produtos/1
+        name: Get ID
+        meta:
+          id: req_045253604f194aa9b371ef623aeac8c0
+          created: 1746451162886
+          modified: 1746451162886
+          isPrivate: false
+          sortKey: -1745356542188.75
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/produtos/lote
+        name: Cadastrar por Lote
+        meta:
+          id: req_78b3c41492c7451da625d868dbc84cc0
+          created: 1746456138668
+          modified: 1746456155800
+          isPrivate: false
+          sortKey: -1745357493589.875
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            [
+            	{
+            	"nome": "Dipirona",
+            	"quantidade": 2,
+            	"preco": 10.50,
+            	"categoria": {"id": 1}
+            },
+            	
+            	{
+            	"nome": "Buscofem",
+            	"quantidade": 3,
+            	"preco": 25.00,
+            	"categoria": {"id": 2}
+            },
+            	{
+            	"nome": "Dorflex",
+            	"quantidade": 5,
+            	"preco": 15.00,
+            	"categoria": {"id": 3}
+            },
+            	{
+            	"nome": "Sempre Livre",
+            	"quantidade": 7,
+            	"preco": 16.00,
+            	"categoria": {"id": 4}
+            }
+            	]
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Categoria
+    meta:
+      id: fld_1cca73f1f06a4700908d5898444eec71
+      created: 1746451162889
+      modified: 1746451162889
+      sortKey: -1745363724312
+    children:
+      - url: localhost:8080/categoria/1
+        name: Get ID
+        meta:
+          id: req_93a57e72147244018fe0086a2b39b1cb
+          created: 1746451162891
+          modified: 1746457184011
+          isPrivate: false
+          sortKey: -1745363727972
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/categoria
+        name: Cadastrar
+        meta:
+          id: req_a6f4424e899949cd8de70797c519b502
+          created: 1746451162893
+          modified: 1746456514209
+          isPrivate: false
+          sortKey: -1745363727997
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            
+            {
+            	"nome": "Higiene",
+            	"descricao": "Sabonete Líquido."
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/categoria
+        name: Atualizar
+        meta:
+          id: req_c593ba808d544d23ab62d0862d9a4a1e
+          created: 1746451162896
+          modified: 1746456991039
+          isPrivate: false
+          sortKey: -1745363728097
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id": 1,
+            	"nome": "Higiene - Atualizado",
+            	"descricao": "Sabonete Líquido - Atualizado."
+            	}
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/categoria/1
+        name: "Deletar "
+        meta:
+          id: req_605c83b4b8d14133a89922238df53fc4
+          created: 1746451162898
+          modified: 1746457165047
+          isPrivate: false
+          sortKey: -1745363728197
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/categoria
+        name: Get All
+        meta:
+          id: req_ed857a6280cf4b74813bc189e9546550
+          created: 1746451162901
+          modified: 1746451162901
+          isPrivate: false
+          sortKey: -1745363727897
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/categoria/categoria/higi
+        name: Get By Nome
+        meta:
+          id: req_941c3c79a75b41199df88e2b6a6f1d11
+          created: 1746451162903
+          modified: 1746457232828
+          isPrivate: false
+          sortKey: -1745363727947
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/categoria/lote
+        name: Cadastrar por Lote
+        meta:
+          id: req_dfb32a500c66485e86ef6489701cfc7f
+          created: 1746456374478
+          modified: 1746456393180
+          isPrivate: false
+          sortKey: -1745363727984.5
+        method: POST
+        body:
+          mimeType: application/json
+          text: |
+            [
+            	{
+            	"nome": "Analgésico",
+            	"descricao": "Para dor de cabeça e corpo."
+            },
+            	
+            {
+            	"nome": "Dor",
+            	"descricao": "Para cólica menstrual."
+            },
+            {
+            	"nome": "Relaxante Muscular",
+            	"descricao": "Para cólica mentrual."
+            },
+            {
+            	"nome": "Absorvente",
+            	"descricao": "Período mentrual."
+            }
+            	]
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_81f08cb1ff5d43e4bec43b6636c87d67
+    created: 1746451162866
+    modified: 1746451162866
+environments:
+  name: Base Environment
+  meta:
+    id: env_5190531f68cf4913933da43d189085f4
+    created: 1746451162863
+    modified: 1746451162863
+    isPrivate: false
